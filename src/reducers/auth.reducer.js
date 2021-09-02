@@ -12,7 +12,8 @@ const initState = {
     authenticate: false,
     authenticating: false,
     loading: false,
-    error: ''
+    error: '',
+    message: ''
 }
 
 export const authReducer = (state = initState, action) => {
@@ -53,6 +54,26 @@ export const authReducer = (state = initState, action) => {
                 loading: false,
                 error: action.payload
             }
+        case authConstants.USER_REGISTER_REQUEST: {
+            return {
+                ...state,
+                loading: true
+            }
+        }
+        case authConstants.USER_REGISTER_SUCCESS: {
+            return {
+                ...state,
+                loading: false,
+                message: action.payload
+            }
+        }
+        case authConstants.USER_REGISTER_FAILURE: {
+            return {
+                ...state,
+                loading: false,
+                message: action.payload
+            }
+        }
         default: return state
     }
 }

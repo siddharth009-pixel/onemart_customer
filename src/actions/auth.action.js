@@ -1,6 +1,8 @@
 import { authConstants, cartConstants } from "./constants"
 import axios from '../helpers/axios'
 import { resetCart } from "./cart.action"
+import {userConstants} from './constants'
+
 
 export const login=(user)=>{
  
@@ -56,6 +58,7 @@ export const isUserLoggedIn=()=>{
 
 export const signOut=()=>{
     return async (dispatch)=>{
+        console.log('signout action received')
         dispatch({type:authConstants.LOGOUT_REQUEST})
         const res=await axios.post('/signout')
         if(res.status===200){
@@ -64,11 +67,37 @@ export const signOut=()=>{
                 payload:res.data.message
             })
             dispatch(resetCart())
+            localStorage.clear()
+
         }else{
             dispatch({
                 type:authConstants.LOGOUT_FAILED,
                 payload:res.data.error
             })
+        }
+    }
+}
+
+
+export const signup=(user)=>{
+    return async(dispatch)=>{
+        dispatch({type:authConstants.USER_REGISTER_REQUEST})
+        const res=await axios.post('/signup',{
+            ...user
+        })
+        if(res.status===200){
+            dispatch({type:authConstants.USER_REGISTER_SUCCESS,
+            payload:{
+                ...res.data
+            }
+           })
+        }
+        if(res.status===400){
+            dispatch({type:authConstants.USER_REGISTER_FAILURE,
+            payload:{
+                ...res.data
+            }
+           })
         }
     }
 }

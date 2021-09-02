@@ -1,12 +1,6 @@
 import React from "react"
-import { useEffect } from "react"
-import { useDispatch, useSelector } from "react-redux"
-import { getProductsBySlug } from "../../actions/product.action"
 import Layout from "../../components/Layout"
-import axios from "../../helpers/axios"
-import { generatePublicUrl } from "../../urlConfig"
 import getParams from "../../utils/getParams"
-import Home from "../Home"
 import ProductPage from "./ProductPage"
 import ProductStore from "./ProductStore"
 import './style.css'

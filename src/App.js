@@ -14,6 +14,7 @@ import CartPage from './containers/CartPage';
 import { updateCart } from './actions/cart.action';
 import { Checkout } from './containers/Checkout';
 import Orders from './containers/Orders';
+import Signup from './containers/Signup';
 
 
 function App() {
@@ -45,6 +46,7 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route path="/user/orders" component={Orders} />
           <Route path="/cart" component={CartPage} />
+          <Route path="/signup" component={Signup} />
           <Route path="/checkout" component={Checkout} />
           <Route path="/:product/:productId/p" component={ProductDetailsPage} />
           <Route path="/:slug" component={ProductListPage} />

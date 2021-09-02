@@ -84,6 +84,7 @@ const DropdownMenu = (props) => {
                 <li key={index}>
                     <a 
                         href={item.href}
+                        onClick={item.onClick}
                     >
                         {item.label}
                     </a>

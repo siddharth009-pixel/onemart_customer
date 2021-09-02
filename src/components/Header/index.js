@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './style.css';
-import flipkartLogo from '../../images/logo/flipkart.png';
+import onemartLogo from '../../images/logo/onemart2.jpeg';
+// import flipkartLogo from '../../images/logo/flipkart.png';
 import goldenStar from '../../images/logo/golden-star.png';
 import loginImage from '../../images/login-image.png'
 import { IoIosArrowDown, IoIosCart, IoIosSearch } from 'react-icons/io';
@@ -24,11 +25,13 @@ const Header = (props) => {
 
   const auth=useSelector(state=>state.auth)
   const [loginModal, setLoginModal] = useState(false);
+  const [signUpModal, setSignUpModal] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const dispatch=useDispatch()
   useEffect(()=>{
     setLoginModal(false)
+    setSignUpModal(false)
   },[auth.authenticate])
 
   const userLogin=()=>{
@@ -56,7 +59,7 @@ const Header = (props) => {
       }
       menus={[
         { label: 'My Profile', href: '', icon: null },
-        { label: 'Flipkart Plus Zone', href: '', icon: null },
+        { label: 'onemart Plus Zone', href: '', icon: null },
         { label: 'Orders', href: '/user/orders', icon: null },
         { label: 'Wishlist', href: '', icon: null },
         { label: 'Rewards', href: '', icon: null },
@@ -78,7 +81,7 @@ const Header = (props) => {
       }
       menus={[
         { label: 'My Profile', href: '', icon: null },
-        { label: 'Flipkart Plus Zone', href: '', icon: null },
+        { label: 'onemart Plus Zone', href: '', icon: null },
         { label: 'Orders', href: '', icon: null },
         { label: 'Wishlist', href: '', icon: null },
         { label: 'Rewards', href: '', icon: null },
@@ -87,7 +90,7 @@ const Header = (props) => {
       firstMenu={
         <div className="firstmenu">
           <span>New Customer?</span>
-          <a style={{ color: '#2874f0' }}>Sign Up</a>
+          <Link style={{ color: '#2874f0' }} to={"/signup"}>Sign Up</Link>
         </div>
       }
     />
@@ -140,18 +143,22 @@ const Header = (props) => {
           </div>
         </div>
       </Modal>
+
+
+
+      
       <div className="subHeader">
 
         {/* logo starts  */}
         <div className="logo">
           <a href="">
-            <img src={flipkartLogo} className="logoimage" alt="" />
+            <img src={onemartLogo} className="logoimage" alt="" />
           </a>
-          <a style={{ marginTop: '-10px' }}>
+          {/* <a style={{ marginTop: '-10px' }}>
             <span className="exploreText">Explore</span>
             <span className="plusText">Plus</span>
             <img src={goldenStar} className="goldenStar" alt="" />
-          </a>
+          </a> */}
         </div>
       {/* logo ends */}
 
@@ -192,7 +199,7 @@ const Header = (props) => {
             }
             menus={[
               { label: 'My Profile', href: '', icon: null },
-              { label: 'Flipkart Plus Zone', href: '', icon: null },
+              { label: 'onemart Plus Zone', href: '', icon: null },
               { label: 'Orders', href: '', icon: null },
               { label: 'Wishlist', href: '', icon: null },
               { label: 'Rewards', href: '', icon: null },
@@ -218,7 +225,7 @@ const Header = (props) => {
             }
             menus={[
               { label: 'Notification Preference', href: '', icon: null },
-              { label: 'Sell on flipkart', href: '', icon: null },
+              { label: 'Sell on onemart', href: '', icon: null },
               { label: '24x7 Customer Care', href: '', icon: null },
               { label: 'Advertise', href: '', icon: null },
               { label: 'Download App', href: '', icon: null }

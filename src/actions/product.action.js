@@ -53,6 +53,7 @@ export const getProductDetailsById = (payload) => {
         const res = await axios.get(`/product/${productId}`)
         
         if(res.status===200){
+            console.log('get product details by ID success 200');
             dispatch({
                 type:productConstants.GET_PRODUCT_DETAILS_BY_ID_SUCCESS,
                 payload:{productDetails:res.data.product}

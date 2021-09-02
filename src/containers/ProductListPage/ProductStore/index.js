@@ -13,6 +13,7 @@ const ProductStore = (props) => {
     const product = useSelector(store => store.product)
 
     const dispatch = useDispatch();
+    console.log('in product store useEffect')
     useEffect(async () => {
         const { slug } = props.match.params;
         dispatch(getProductsBySlug(slug));
@@ -30,10 +31,10 @@ const ProductStore = (props) => {
                         {
                             product.products.map((product) => {
                                 return (
-                                    <Link 
+                                    <a 
                                         className="productContainer"
                                         style={{display:"block"}}
-                                        to={`/${product.slug}/${product._id}/p`}
+                                        href={`/${product.slug}/${product._id}/p`}
                                     >    
                                         <div className="productImgContainer">
                                                 <img src={generatePublicUrl(product.productPictures[0].img)}></img>
@@ -44,7 +45,7 @@ const ProductStore = (props) => {
                                             </div>
                                             <div className="productName">{product.name}</div>
                                             <div className="price">{product.price}</div>
-                                    </Link>
+                                    </a>
                                 )
                             })
                         }

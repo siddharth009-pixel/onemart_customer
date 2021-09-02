@@ -6,9 +6,9 @@ import { generatePublicUrl } from "../../urlConfig"
 import { Row, Col } from 'react-bootstrap'
 import { MaterialButton } from "../../components/MaterialUI"
 import {
-    IoIosArrowForward,
-    IoIosStar,
-    IoMdCart
+  IoIosArrowForward,
+  IoIosStar,
+  IoMdCart
 } from 'react-icons/io';
 import { BiRupee } from 'react-icons/bi';
 import { AiFillThunderbolt } from 'react-icons/ai';
@@ -17,41 +17,42 @@ import { addToCart } from "../../actions/cart.action"
 
 export const ProductDetailsPage = (props) => {
 
-    const dispatch = useDispatch()
-    const product = useSelector(state => state.product)
-    
-    const addToCartButton=()=>{
-      const {_id,name,price}=product.productDetails;
-      const img=product.productDetails.productPictures[0].img;
-      dispatch(addToCart({_id,name,price,img}))
-      props.history.push(`/cart`)
-    }
+  const dispatch = useDispatch()
+  const product = useSelector(state => state.product)
 
-    useEffect(() => {
-        const { product, productId } = props.match.params
-        const payload = {
-            productId
-        }
-        dispatch(getProductDetailsById(payload))
-    }, [])
+  const addToCartButton = () => {
+    const { _id, name, price } = product.productDetails;
+    const img = product.productDetails.productPictures[0].img;
+    dispatch(addToCart({ _id, name, price, img }))
+    props.history.push(`/cart`)
+  }
 
-    if (Object.keys(product.productDetails).length == 0) {
-        return null
+  useEffect(() => {
+    const { product, productId } = props.match.params
+    const payload = {
+      productId
     }
-    return (
-        <Layout>
-          {/* <div>{product.productDetails.name}</div> */}
+    dispatch(getProductDetailsById(payload))
+  }, [])
+
+  return (
+    <Layout>
+
+      {
+        product.productDetails ?
           <div className="productDescriptionContainer">
             <div className="flexRow"
-                style={{
-                    display:"flex"
-                }}>
+              style={{
+                display: "flex"
+              }}>
               <div className="verticalImageStack">
-                {
-                  product.productDetails.productPictures.map((thumb, index) => 
-                  <div className="thumbnail">
-                    <img src={generatePublicUrl(thumb.img)} alt={thumb.img} />
-                  </div>
+                {product.productDetails.productPictures &&
+                  product.productDetails.productPictures.map((thumb, index) =>
+                    <div className="thumbnail">
+                      <a href={generatePublicUrl(thumb.img)}>
+                      <img src={generatePublicUrl(thumb.img)} alt={thumb.img} />
+                      </a>
+                    </div>
                   )
                 }
                 {/* <div className="thumbnail active">
@@ -63,13 +64,15 @@ export const ProductDetailsPage = (props) => {
               </div>
               <div className="productDescContainer">
                 <div className="productDescImgContainer"
-                style={{
-                    height:'580px'
-                }}>
-                  <img style={{height:'580px'}}
-                  src={generatePublicUrl(product.productDetails.productPictures[0].img)} alt={`${product.productDetails.productPictures[0].img}`} />
+                  style={{ height: '580px' }}
+                  >
+                  <a href={generatePublicUrl(product.productDetails.productPictures && product.productDetails.productPictures[0].img)}>
+                    <img style={{ height: '580px' }}
+                      src={generatePublicUrl(product.productDetails.productPictures && product.productDetails.productPictures[0].img)} alt={product.productDetails.productPictures && product.productDetails.productPictures[0].img} />
+
+                  </a>
                 </div>
-    
+
                 {/* action buttons */}
                 <div className="flexRow">
                   <MaterialButton
@@ -87,16 +90,16 @@ export const ProductDetailsPage = (props) => {
                     bgColor="#fb641b"
                     textColor="#ffffff"
                     style={{
-                        margin: '10px auto 5px auto',
+                      margin: '10px auto 5px auto',
                     }}
                     icon={<AiFillThunderbolt />}
                   />
                 </div>
               </div>
             </div>
-           
+
             <div style={{
-                margin: '10px auto auto 40px'
+              margin: '10px auto auto 40px'
             }}>
               {/* home > category > subCategory > productName */}
               <div className="breed">
@@ -109,7 +112,7 @@ export const ProductDetailsPage = (props) => {
               </div>
               {/* product description */}
               <div className="productDetails">
-                  <p className="productTitle">{product.productDetails.name}</p>
+                <p className="productTitle">{product.productDetails.name}</p>
                 <div>
                   <span className="ratingCount">4.3 <IoIosStar /></span>
                   <span className="ratingNumbersReviews">72,234 Ratings & 8,140 Reviews</span>
@@ -119,13 +122,13 @@ export const ProductDetailsPage = (props) => {
                   <span className="pricebtn"><BiRupee />{product.productDetails.price}</span>
                   <span className="discount" style={{ margin: '0 10px' }}>22% off</span>
                   {/* <span>i</span> */}
-                  </div>
+                </div>
                 <div>
-                  <p style={{ 
-                    color: '#212121', 
+                  <p style={{
+                    color: '#212121',
                     fontSize: '14px',
-                    fontWeight: '600' 
-                    }}>Available Offers</p>
+                    fontWeight: '600'
+                  }}>Available Offers</p>
                   <p style={{ display: 'flex' }}>
                     <span style={{
                       width: '100px',
@@ -133,19 +136,24 @@ export const ProductDetailsPage = (props) => {
                       color: '#878787',
                       fontWeight: '600',
                       marginRight: '20px'
-                  }}>Description</span>
-                  <span style={{
-                    fontSize: '15px',
-                    color: '#212121',
-                  }}>{product.productDetails.description}</span>
+                    }}>Description</span>
+                    <span style={{
+                      fontSize: '15px',
+                      color: '#212121',
+                    }}>{product.productDetails.description}</span>
                   </p>
                 </div>
               </div>
-              
-    
+
+
             </div>
           </div>
-        </Layout>
-      )
-    
+          : null
+      }
+
+
+      {/* <div>{product.productDetails.name}</div> */}
+    </Layout>
+  )
+
 }
