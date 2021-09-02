@@ -1,28 +1,29 @@
 {
   "files": {
-    "main.css": "/static/css/main.e4e56ccb.chunk.css",
-    "main.js": "/static/js/main.7ffb79f4.chunk.js",
-    "main.js.map": "/static/js/main.7ffb79f4.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.091a8cda.js",
-    "runtime-main.js.map": "/static/js/runtime-main.091a8cda.js.map",
+    "main.css": "/static/css/main.35f3b5a3.chunk.css",
+    "main.js": "/static/js/main.2da8bd2f.chunk.js",
+    "main.js.map": "/static/js/main.2da8bd2f.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.772b7d00.js",
+    "runtime-main.js.map": "/static/js/runtime-main.772b7d00.js.map",
     "static/css/2.6b560088.chunk.css": "/static/css/2.6b560088.chunk.css",
-    "static/js/2.e8e516f3.chunk.js": "/static/js/2.e8e516f3.chunk.js",
-    "static/js/2.e8e516f3.chunk.js.map": "/static/js/2.e8e516f3.chunk.js.map",
-    "static/js/3.1db620d4.chunk.js": "/static/js/3.1db620d4.chunk.js",
-    "static/js/3.1db620d4.chunk.js.map": "/static/js/3.1db620d4.chunk.js.map",
+    "static/js/2.7400ff66.chunk.js": "/static/js/2.7400ff66.chunk.js",
+    "static/js/2.7400ff66.chunk.js.map": "/static/js/2.7400ff66.chunk.js.map",
+    "static/js/3.021d843e.chunk.js": "/static/js/3.021d843e.chunk.js",
+    "static/js/3.021d843e.chunk.js.map": "/static/js/3.021d843e.chunk.js.map",
     "index.html": "/index.html",
     "static/css/2.6b560088.chunk.css.map": "/static/css/2.6b560088.chunk.css.map",
-    "static/css/main.e4e56ccb.chunk.css.map": "/static/css/main.e4e56ccb.chunk.css.map",
-    "static/js/2.e8e516f3.chunk.js.LICENSE.txt": "/static/js/2.e8e516f3.chunk.js.LICENSE.txt",
+    "static/css/main.35f3b5a3.chunk.css.map": "/static/css/main.35f3b5a3.chunk.css.map",
+    "static/js/2.7400ff66.chunk.js.LICENSE.txt": "/static/js/2.7400ff66.chunk.js.LICENSE.txt",
     "static/media/golden-star.5b4a1d21.png": "/static/media/golden-star.5b4a1d21.png",
     "static/media/style.css": "/static/media/login-image.4ff4afef.png",
-    "static/media/logo.6ce24c58.svg": "/static/media/logo.6ce24c58.svg"
+    "static/media/logo.6ce24c58.svg": "/static/media/logo.6ce24c58.svg",
+    "static/media/onemart2.75bdc439.jpeg": "/static/media/onemart2.75bdc439.jpeg"
   },
   "entrypoints": [
-    "static/js/runtime-main.091a8cda.js",
+    "static/js/runtime-main.772b7d00.js",
     "static/css/2.6b560088.chunk.css",
-    "static/js/2.e8e516f3.chunk.js",
-    "static/css/main.e4e56ccb.chunk.css",
-    "static/js/main.7ffb79f4.chunk.js"
+    "static/js/2.7400ff66.chunk.js",
+    "static/css/main.35f3b5a3.chunk.css",
+    "static/js/main.2da8bd2f.chunk.js"
   ]
 }
