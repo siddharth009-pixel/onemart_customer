@@ -15,7 +15,8 @@ import { updateCart } from './actions/cart.action';
 import { Checkout } from './containers/Checkout';
 import Orders from './containers/Orders';
 import Signup from './containers/Signup';
-
+import _env from 'dotenv';
+_env.config();
 
 function App() {
 
